@@ -12,6 +12,10 @@
     "url": "https://github.com/zcregan/JSPM-Babel-JSX-Demo/issues"
   },
   "main": false,
+  "dependencies": {
+    "copyfiles": "^0.1.0",
+    "rimraf": "^2.3.2"
+  },
   "devDependencies": {
     "http-server": "^0.7.5",
     "opener": "^1.4.0"
@@ -29,6 +33,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "opener http://localhost:8000 && http-server -c-1 -s -p 8000 wwwroot",
-    "build": "jspm bundle index build/index.js"
+    "build:clean": "rimraf build",
+    "build:copy": "copyfiles -f wwwroot/index.html wwwroot/config.js build && copyfiles -f wwwroot/jspm_packages/*.* build/jspm_packages",
+    "build:bundle": "jspm bundle index build/index.js",
+    "build": "npm run build:clean && npm run build:copy && npm run build:bundle",
+    "build:test": "npm run build && opener http://localhost:9000 && http-server -c-1 -s -p 9000 wwwroot"
   }
 }
