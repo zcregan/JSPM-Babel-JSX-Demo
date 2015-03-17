@@ -1,0 +1,4 @@
+node_modules
+wwwroot/jspm_packages
+build
+npm-debug.log

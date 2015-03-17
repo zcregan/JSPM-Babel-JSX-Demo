@@ -1,0 +1,34 @@
+{
+  "name": "JSPM-Babel-JSX-Demo",
+  "version": "1.0.0",
+  "author": "Zachary Cregan",
+  "license": "MIT",
+  "homepage": "https://github.com/zcregan/JSPM-Babel-JSX-Demo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zcregan/JSPM-Babel-JSX-Demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zcregan/JSPM-Babel-JSX-Demo/issues"
+  },
+  "main": false,
+  "devDependencies": {
+    "http-server": "^0.7.5",
+    "opener": "^1.4.0"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "wwwroot",
+      "lib": "wwwroot",
+      "packages": "wwwroot\\jspm_packages"
+    },
+    "dependencies": {
+      "jsx": "github:zcregan/plugin-babeljsx@master"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "opener http://localhost:8000 && http-server -c-1 -s -p 8000 wwwroot",
+    "build": "jspm bundle index build/index.js"
+  }
+}
